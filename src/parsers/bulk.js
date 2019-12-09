@@ -28,7 +28,7 @@ function concatTokens (tokens) {
 
 function tokenParser (verbose, failEarly) {
   return (token, firstLine) => {
-    let err = ''
+    let err   = ''
     let jsons = []
 
     try {
