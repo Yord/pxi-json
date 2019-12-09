@@ -1,0 +1,32 @@
+{
+  "name": "@pf/json",
+  "version": "0.1.0",
+  "description": "JSON plugin for pf, the fast and extensible command-line data (e.g. JSON) processor and transformer",
+  "keywords": ["pf", "parser functions", "json", "streaming", "lexer", "parser", "unmarshaller", "marshaller"],
+  "homepage": "https://github.com/Yord/pf-json",
+  "bugs": {
+    "url": "https://github.com/Yord/pf-cli/issues"
+  },
+  "license": "MIT",
+  "author": "Philipp Wille <philipp.y.wille@gmail.com> (https://github.com/Yord)",
+  "contributors": [
+    "Philipp Wille <philipp.y.wille@gmail.com> (https://github.com/Yord)"
+  ],
+  "files": [
+    "./index.js",
+    "./src/**/*.js"
+  ],
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yord/pf-json.git"
+  },
+  "scripts": {
+    "start": "./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8.3.0"
+  },
+  "private": false
+}
