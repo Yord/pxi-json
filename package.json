@@ -5,7 +5,7 @@
   "keywords": ["pf", "parser functions", "json", "streaming", "lexer", "parser", "unmarshaller", "marshaller"],
   "homepage": "https://github.com/Yord/pf-json",
   "bugs": {
-    "url": "https://github.com/Yord/pf-cli/issues"
+    "url": "https://github.com/Yord/pf/issues"
   },
   "license": "MIT",
   "author": "Philipp Wille <philipp.y.wille@gmail.com> (https://github.com/Yord)",
