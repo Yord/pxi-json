@@ -4,9 +4,9 @@
 
 See the [`pf` github repository][pf] for more details!
 
-[![npm version](https://img.shields.io/npm/v/fx.svg?color=orange)](https://www.npmjs.com/package/fx)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg?color=green)][license]
-[![unit tests status](https://github.com/Yord/pfx-json/workflows/unit%20tests/badge.svg?branch=master)][actions]
+[![npm version][npm-shield]][npm-package]
+[![license][license-shield]][license]
+[![unit tests status][unit-tests-shield]][actions]
 
 ## Installation
 
@@ -38,7 +38,11 @@ For a much more detailed description, see the [`pf` repository][pf].
 
 `@pfx/json` is [MIT licensed][license].
 
+[npm-package]: https://www.npmjs.com/package/@pfx/json
 [license]: https://github.com/Yord/pfx-json/blob/master/LICENSE
 [teaser]: ./teaser.gif
 [pf]: https://github.com/Yord/pf
 [actions]: https://github.com/Yord/pfx-json/actions
+[npm-shield]: https://img.shields.io/npm/v/@pfx/json.svg?color=orange
+[license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?color=green
+[unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/unit%20tests/badge.svg?branch=master
