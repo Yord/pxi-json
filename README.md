@@ -10,7 +10,29 @@ See the [`pf` github repository][pf] for more details!
 
 ## Installation
 
-`@pf/json` comes preinstalled in the `pf` command line tool. No installation necessary.
+> :ok_hand: `@pf/json` comes preinstalled in `pf`. No installation necessary. If you still want to install it, proceed as described below.
+
+`pf` requires **node v8.3.0** or higher.
+
+Usually, `@pf/json` is installed in `~/.pfrc/` as follows:
+
+```bash
+npm install @pf/json
+```
+
+The plugin is included in `~/.pfrc/index.js` as follows:
+
+```js
+const jsonPlugin = require('@pf/json')
+
+module.exports = {
+  plugins:  [jsonPlugin],
+  context:  {},
+  defaults: {}
+}
+```
+
+For a much more detailed description, see the [`pf` repository][pf].
 
 ## License
 
