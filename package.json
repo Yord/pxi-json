@@ -21,10 +21,6 @@
   "contributors": [
     "Philipp Wille <philipp.y.wille@gmail.com> (https://github.com/Yord)"
   ],
-  "files": [
-    "./index.js",
-    "./src/**/*.js"
-  ],
   "main": "./index.js",
   "repository": {
     "type": "git",
