@@ -1,7 +1,7 @@
 module.exports = {
   name: 'jsonBulk',
   desc: 'parses all tokens into JSON in one go, which is faster, but fails the whole bulk instead of just a single token if an error is thrown.',
-  func: (verbose, failEarly, argv) => (tokens, lines) => {
+  func: ({verbose}) => (tokens, lines) => {
     const parseToken = tokenParser(verbose, failEarly)
     
     const firstLine = lines[0] || -1
@@ -28,19 +28,15 @@ function concatTokens (tokens) {
 
 function tokenParser (verbose, failEarly) {
   return (token, firstLine) => {
-    let err   = ''
     let jsons = []
+    const err = []
 
     try {
       jsons = JSON.parse(token)
     } catch (e) {
       const line = verbose > 0 ? '(Line ' + firstLine + ') ' : ''
       const info = verbose > 1 ? ' while parsing:\n' + token : ''
-      err += line + e + info + '\n'
-      if (failEarly) {
-        process.stderr.write(err)
-        process.exit(1)
-      }
+      err.push(line + e + info)
     }
 
     return {err, jsons}
