@@ -9,7 +9,6 @@
     "streaming",
     "lexer",
     "parser",
-    "unmarshaller",
     "marshaller"
   ],
   "homepage": "https://github.com/Yord/pfx-json",
