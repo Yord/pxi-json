@@ -1,9 +1,10 @@
 module.exports = {
   name: 'jsonStream',
   desc: 'parses streams of JSON objects (not arrays!) and drops all characters in between.',
-  func: (verbose, failEarly, argv) => (data, linesOffset) => {
+  func: ({verbose}) => (data, linesOffset) => {
     const tokens = []
     const lines  = []
+    const err    = []
   
     let text     = data
     let len      = text.length
@@ -63,6 +64,6 @@ module.exports = {
       }
     } while (!done)
   
-    return {err: '', tokens, lines, lastLine, rest: text}
+    return {err, tokens, lines, lastLine, rest: text}
   }
 }
