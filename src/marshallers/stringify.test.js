@@ -51,3 +51,37 @@ test('return the empty string if stringify does not work for an object instead o
     )
   )
 })
+
+test('should fail on an object with circular reference, disregarding verbose', () => {
+  const str       = ''
+  const valuesErr = array(unicodeJsonObject()).chain(jsons => {
+    const values = jsons.map(json => {
+      const circular  = {json}
+      circular.circle = circular
+      return circular
+    })
+    return constant({
+      values,
+      err: values.map(() => "TypeError: Converting circular structure to JSON\n    --> starting at object with constructor 'Object'\n    --- property 'circle' closes the circle")
+    })
+  })
+  const argv      = anything().chain(verbose =>
+    integer(0, 20).chain(spaces =>
+      oneof(constant('spaces'), constant('S')).chain(_spaces =>
+        oneof(constant('keep'), constant('K')).chain(_keep =>
+          constant({verbose, [_spaces]: spaces, [_keep]: null})
+        )
+      )
+    )
+  )
+
+  assert(
+    property(argv, valuesErr, (argv, {values, err}) =>
+      expect(
+        marshaller(argv)(values)
+      ).toStrictEqual(
+        {err, str}
+      )
+    )
+  )
+})
