@@ -73,3 +73,31 @@ test('parsing text that is not json fails with errors and lines if verbose is 1'
     )
   )
 })
+
+test('parsing text that is not json fails with errors, lines, and info if verbose is 2 or higher', () => {
+  const argv           = integer(2, 50).chain(verbose => constant({verbose}))
+  const jsons          = []
+  const tokensLinesErr = integer(0, 20).chain(len =>
+    array(integer(), len, len).chain(lines =>
+      array(func(anything()).map(f => f.toString()), len, len).chain(tokens =>
+        constant({
+          tokens,
+          lines,
+          err: lines.map(
+            (line, index) => `(Line ${line}) SyntaxError: Unexpected token < in JSON at position 0 while parsing:\n${tokens[index]}`
+          )
+        })
+      )
+    )
+  )
+
+  assert(
+    property(argv, tokensLinesErr, (argv, {tokens, lines, err}) =>
+      expect(
+        parser(argv)(tokens, lines)
+      ).toStrictEqual(
+        {err, jsons}
+      )
+    )
+  )
+})
