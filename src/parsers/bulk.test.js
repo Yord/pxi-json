@@ -32,7 +32,8 @@ test('parsing text that is not json throws one of a list of errors, not using li
   const msgs                     = [
     'SyntaxError: Unexpected end of',
     'SyntaxError: Unexpected token ',
-    'SyntaxError: Unexpected number'
+    'SyntaxError: Unexpected number',
+    'SyntaxError: Unexpected string'
   ]
 
   assert(
