@@ -62,7 +62,7 @@ test('should fail on an object with circular reference, disregarding verbose', (
     })
     return constant({
       values,
-      err: values.map(() => "TypeError: Converting circular structure to JSON\n    --> starting at object with constructor 'Object'\n    --- property 'circle' closes the circle")
+      err: values.map(() => "TypeError: Converting circular structure to JSON")
     })
   })
   const argv      = anything().chain(verbose =>
@@ -76,12 +76,15 @@ test('should fail on an object with circular reference, disregarding verbose', (
   )
 
   assert(
-    property(argv, valuesErr, (argv, {values, err}) =>
+    property(argv, valuesErr, (argv, {values, err}) => {
+      const result = marshaller(argv)(values)
+      result.err = result.err.map(e => e.slice(0, 48))
+      // must slice error since node v13 has more details than node v8.3.0
       expect(
-        marshaller(argv)(values)
+        result
       ).toStrictEqual(
         {err, str}
       )
-    )
+    })
   )
 })
