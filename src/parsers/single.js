@@ -2,8 +2,8 @@ module.exports = {
   name: 'jsonSingle',
   desc: 'parses each token into JSON individually.',
   func: ({verbose}) => (tokens, lines) => {
-    let jsons = []
-    const err = []
+    const jsons = []
+    const err   = []
   
     for (let index = 0; index < tokens.length; index++) {
       const token = tokens[index]
