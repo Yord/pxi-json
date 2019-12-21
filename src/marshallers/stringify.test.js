@@ -26,3 +26,28 @@ test('returns stringified jsons with formatting separated by newlines', () => {
     })
   )
 })
+
+test('return the empty string if stringify does not work for an object instead of an error', () => {
+  const err    = []
+  const str    = ''
+  const values = array(func(integer()))
+  const argv   = anything().chain(verbose =>
+    integer(0, 20).chain(spaces =>
+      oneof(constant('spaces'), constant('S')).chain(_spaces =>
+        oneof(constant('keep'), constant('K')).chain(_keep =>
+          constant({verbose, [_spaces]: spaces, [_keep]: null})
+        )
+      )
+    )
+  )
+
+  assert(
+    property(argv, values, (argv, values) =>
+      expect(
+        marshaller(argv)(values)
+      ).toStrictEqual(
+        {err, str}
+      )
+    )
+  )
+})
