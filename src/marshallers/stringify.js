@@ -15,7 +15,7 @@ module.exports = {
           const obj = jsons[index]
           str += JSON.stringify(obj, _keep, _spaces) + '\n'
         } catch (e) {
-          const info = verbose > 1 ? ' while marshalling:\n' + JSON.stringify(obj, null, 2) : ''
+          const info = verbose > 1 ? ' while marshalling:\n' + JSON.stringify(obj, null, 0) : ''
           err.push(e + info)
         }
       }
