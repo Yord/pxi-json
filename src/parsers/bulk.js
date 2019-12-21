@@ -4,7 +4,7 @@ module.exports = {
   func: (argv) => (tokens, lines) => {
     const parseToken = tokenParser(argv)
     
-    const firstLine = lines[0] || -1
+    const firstLine = argv.verbose > 0 ? lines[0] : -1
     const token = concatTokens(tokens)
     return parseToken(token, firstLine)
   }
