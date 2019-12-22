@@ -1,69 +1,76 @@
 module.exports = {
   name: 'jsonStream',
-  desc: 'parses streams of JSON objects (not arrays!) and drops all characters in between.',
+  desc: 'lexes streams of JSON objects (not arrays!) and drops all characters in between.',
   func: ({verbose}) => (data, linesOffset) => {
-    const tokens = []
-    const lines  = []
-    const err    = []
+    const tokens  = []
+    const lines   = []
+    const err     = []
   
-    let text     = data
-    let len      = text.length
+    let text      = data
+    let len       = text.length
   
-    let at       = -1
-    let lastLine = linesOffset
+    let at        = -1
+    let lastLine  = linesOffset
     
-    let escaped  = false
-    let string   = false
-    let inObj    = false
+    let isEscaped = false
+    let inString  = false
+    let inObj     = false
   
-    let obj      = false
-    let brackets = 0
+    let objFound  = false
+    let brackets  = 0
   
-    let done     = false
-    let from     = 0
+    let isDone    = false
+    let from      = 0
     let ch
     
     do {
       at++
       ch = text.charAt(at)
   
-      if (verbose && ch === '\n') lastLine++
+      if (verbose > 0 && ch === '\n') lastLine++
   
-      if (string) {
-        if (escaped) escaped = false
-        else {
-          if (ch === '"') string = false
-          else if (ch === '\\') escaped = true
+      if (!inObj) {
+        if (ch === '{') {
+          from = at
+          brackets = 1
+          inObj = true
+          if (verbose > 0) lines.push(lastLine)
         }
       } else {
-        if (ch === '"') string = true
-        else if (ch === '{') {
-          if (brackets === 0) from = at
-          inObj = true
-          brackets++
-        } else if (inObj && ch === '}') {
-          brackets--
-          if (brackets === 0) {
-            inObj = false
-            obj = true
+        if (inString) {
+          if (isEscaped) isEscaped = false
+          else {
+            if (ch === '"') inString = false
+            else if (ch === '\\') isEscaped = true
+          }
+        } else {
+          if (ch === '"') inString = true
+          else if (ch === '{') brackets++
+          else if (ch === '}') {
+            brackets--
+            if (brackets === 0) {
+              inObj    = false
+              objFound = true
+            }
           }
         }
       }
+      
+      if (at === len) isDone = true
   
-      if (at === len) done = true
-  
-      if (obj) {
-        obj = false
+      if (objFound) {
+        objFound    = false
         const token = text.slice(from, at + 1)
+        
         tokens.push(token)
-        if (verbose) lines.push(lastLine)
   
         text = text.slice(at + 1, len)
         len  = text.length
         at   = -1
       }
-    } while (!done)
+    } while (!isDone)
   
-    return {err, tokens, lines, lastLine, rest: text}
+    const lastLineWithoutRest = lines.length === 0 ? linesOffset : lines[lines.length - 1]
+    return {err, tokens, lines, lastLine: lastLineWithoutRest, rest: text}
   }
 }
