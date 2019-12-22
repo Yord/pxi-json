@@ -32,6 +32,24 @@ test('chunks data into valid json objects and leaves out everything in between w
   )
 })
 
+test('chunks data into valid json objects and leaves out everything in between while returning the rest, with lines', () => {
+  const err      = []
+  const argv     = {verbose: 1}
+  const tokens   = ['{"foo": "bar\n\nbaz"}', '{"foo": "bar\nbaz"}']
+  const before   = 'vgjncvkjhx\nc\nvjb'
+  const rest     = 'fcgvhbjkhj\nvgc'
+  const data     = before + tokens.join('') + rest
+  const offset   = 65
+  const lines    = [67, 69]
+  const lastLine = 69
+
+  expect(
+    lexer(argv)(data, offset)
+  ).toStrictEqual(
+    {err, tokens, lines, lastLine, rest}
+  )
+})
+
 function jsonNumber () { return integer().map(i => i.toString()) }
 function jsonString () { return unicodeString().map(s => '"' + s.replace(/"/g, '') + '"') }
 function jsonFalse  () { return constant('false') }
