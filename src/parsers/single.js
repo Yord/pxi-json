@@ -12,9 +12,10 @@ module.exports = {
         const obj = JSON.parse(token)
         jsons.push(obj)
       } catch (e) {
-        const line = verbose > 0 ? '(Line ' + lines[index] + ') ' : ''
-        const info = verbose > 1 ? ' while parsing:\n' + token    : ''
-        err.push(line + e + info)
+        const msg  =               {msg:  e.message}
+        const line = verbose > 0 ? {line: lines[index]} : {}
+        const info = verbose > 1 ? {info: token}        : {}
+        err.push(Object.assign(msg, line, info))
       }
     }
   
