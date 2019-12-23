@@ -30,17 +30,17 @@ test('parsing text that is not json throws one of a list of errors, not using li
   const lines                    = anything()
   const potentiallyInvalidTokens = array(unicodeJson().map(str => str.slice(1)))
   const msgs                     = [
-    'SyntaxError: Unexpected end of',
-    'SyntaxError: Unexpected token ',
-    'SyntaxError: Unexpected number',
-    'SyntaxError: Unexpected string'
+    'Unexpected end of',
+    'Unexpected token ',
+    'Unexpected number',
+    'Unexpected string'
   ]
 
   assert(
     property(lines, potentiallyInvalidTokens, (lines, tokens) =>
       parser(argv)(tokens, lines)
       .err
-      .map(e => e.slice(0, 30))
+      .map(e => e.msg.slice(0, 17))
       .reduce(
         (bool, err) => bool && msgs.indexOf(err) > -1,
         true
@@ -58,7 +58,7 @@ test('parsing text that is not json fails with errors and lines if verbose is 1'
         constant({
           tokens,
           lines,
-          err: lines.map(line => `(Line ${line}) SyntaxError: Unexpected token < in JSON at position 0`)
+          err: lines.map(line => ({msg: 'Unexpected token < in JSON at position 0', line}))
         })
       )
     )
@@ -85,7 +85,7 @@ test('parsing text that is not json fails with errors, lines, and info if verbos
           tokens,
           lines,
           err: lines.map(
-            (line, index) => `(Line ${line}) SyntaxError: Unexpected token < in JSON at position 0 while parsing:\n${tokens[index]}`
+            (line, index) => ({msg: 'Unexpected token < in JSON at position 0', line, info: tokens[index]})
           )
         })
       )
