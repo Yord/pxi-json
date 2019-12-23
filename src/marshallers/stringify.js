@@ -12,11 +12,12 @@ module.exports = {
 
       for (let index = 0; index < jsons.length; index++) {
         try {
-          const obj = jsons[index] // this will fail! Needs to be moved one line up!
+          const obj = jsons[index]
           const foo = JSON.stringify(obj, _keep, _spaces)
           if (typeof foo !== 'undefined') str += foo + '\n'
         } catch (e) {
-          err.push(e.toString())
+          const msg = {msg: e.message}
+          err.push(msg)
         }
       }
 
