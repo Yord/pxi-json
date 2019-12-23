@@ -1,4 +1,4 @@
-name: unit tests
+name: linux unit tests
 
 on: [push]
 
