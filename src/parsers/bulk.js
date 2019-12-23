@@ -34,9 +34,10 @@ function tokenParser ({verbose}) {
     try {
       jsons = JSON.parse(token)
     } catch (e) {
-      const line = verbose > 0 ? '(Line ' + firstLine + ') ' : ''
-      const info = verbose > 1 ? ' while parsing:\n' + token : ''
-      err.push(line + e + info)
+      const msg  =               {msg:  e.message}
+      const line = verbose > 0 ? {line: firstLine} : {}
+      const info = verbose > 1 ? {info: token}     : {}
+      err.push(Object.assign(msg, line, info))
     }
 
     return {err, jsons}
