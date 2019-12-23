@@ -53,6 +53,6 @@ For a much more detailed description, see the [`pf` repository][pf].
 [node]: https://nodejs.org/
 [prs-shield]: https://img.shields.io/badge/PRs-welcome-green.svg
 [pfx-how-to-contribute]: https://github.com/Yord/pf
-[linux-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/linux%20unit%20tests/badge.svg?branch=master
-[macos-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/macos%20unit%20tests/badge.svg?branch=master
-[windows-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/windows%20unit%20tests/badge.svg?branch=master
+[linux-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/linux/badge.svg?branch=master
+[macos-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/macos/badge.svg?branch=master
+[windows-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/windows/badge.svg?branch=master

@@ -1,4 +1,4 @@
-name: macos unit tests
+name: macos
 
 on: [push]
 
