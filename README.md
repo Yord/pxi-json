@@ -16,8 +16,6 @@ See the [`pf` github repository][pf] for more details!
 
 > :ok_hand: `@pfx/json` comes preinstalled in `pf`. No installation necessary. If you still want to install it, proceed as described below.
 
-`pf` requires **node v8.3.0** or higher.
-
 Usually, `@pfx/json` is installed in `~/.pfrc/` as follows:
 
 ```bash
