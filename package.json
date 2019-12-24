@@ -1,6 +1,6 @@
 {
   "name": "@pfx/json",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "JSON plugin for pf, the fast and extensible command-line data (e.g. JSON) processor and transformer",
   "keywords": [
     "pf",

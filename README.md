@@ -16,8 +16,6 @@ See the [`pf` github repository][pf] for more details!
 
 > :ok_hand: `@pfx/json` comes preinstalled in `pf`. No installation necessary. If you still want to install it, proceed as described below.
 
-`pf` requires **node v8.3.0** or higher.
-
 Usually, `@pfx/json` is installed in `~/.pfrc/` as follows:
 
 ```bash
@@ -38,6 +36,10 @@ module.exports = {
 
 For a much more detailed description, see the [`pf` repository][pf].
 
+## Reporting Issues
+
+Please report issues [at the `pf` repository][issues]!
+
 ## License
 
 `@pfx/json` is [MIT licensed][license].
@@ -56,3 +58,4 @@ For a much more detailed description, see the [`pf` repository][pf].
 [linux-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/linux/badge.svg?branch=master
 [macos-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/macos/badge.svg?branch=master
 [windows-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/windows/badge.svg?branch=master
+[issues]: https://github.com/Yord/pf/issues
