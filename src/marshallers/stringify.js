@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'jsonStringify',
+  name: 'stringify',
   desc: 'uses JSON.stringify and has the following additional options:\n\n-S, --spaces\nThe number of spaces used to format JSON. If it is set to 0 (default), the JSON is printed in a single line.    [number]\n\n-K, --keep\nDetermines which JSON fields are kept. If it is left out (default), all fields remain. If it is a string formatted as a JSON array, all fields in the array are kept. See the documentation of JSON.stringify for details.        [string]\n\n',
   func: ({spaces, S, keep, K}) => {
     const _spaces = spaces || S || 0
