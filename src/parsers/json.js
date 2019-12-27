@@ -1,6 +1,6 @@
 module.exports = {
   name: 'json',
-  desc: 'parses each tokens into JSON, but fails all tokens if an error is thrown. It has the following additional options:\n\n-B, --no-bulk\nDeactivates bulk parsing, which is much slower, but fails only those tokens for which an error is thrown.    [boolean]\n\n',
+  desc: 'parses each token into JSON, but fails all tokens if an error is thrown. It has the following additional options:\n\n-B, --no-bulk\nDeactivates bulk parsing, which is much slower, but fails only those tokens that throw an error.             [boolean]\n\n',
   func: ({B, noBulk, verbose}) => {
     const _noBulk     = noBulk || B || false
     const parseTokens = tokensParser({verbose})
