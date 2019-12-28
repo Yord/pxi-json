@@ -1,12 +1,12 @@
 module.exports = {
   lexers: [
-    require('./src/lexers/stream')
+    require('./src/lexers/jsonObj')
   ],
   parsers: [
     require('./src/parsers/json')
   ],
   applicators: [],
   marshallers: [
-    require('./src/marshallers/stringify')
+    require('./src/marshallers/json')
   ]
 }
