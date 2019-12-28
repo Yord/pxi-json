@@ -1,5 +1,5 @@
 const {anything, array, assert, constant, integer, oneof, property, string, unicodeString} = require('fast-check')
-const {func: lexer} = require('./stream')
+const {func: lexer} = require('./jsonObj')
 
 test('chunks data into valid json objects and leaves out everything in between while returning the rest, without lines', () => {
   const err          = []
