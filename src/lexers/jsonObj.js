@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'jsonStream',
+  name: 'jsonObj',
   desc: 'lexes streams of JSON objects (not arrays!) and drops all characters in between.',
   func: ({verbose}) => (data, linesOffset) => {
     const tokens  = []

@@ -1,5 +1,5 @@
 const {anything, array, assert, constant, func, integer, oneof, property, unicodeJsonObject} = require('fast-check')
-const {func: marshaller} = require('./stringify')
+const {func: marshaller} = require('./json')
 
 test('returns stringified jsons with formatting separated by newlines', () => {
   const err    = []
