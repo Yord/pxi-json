@@ -25,10 +25,10 @@ npm install @pfx/json
 The plugin is included in `~/.pfrc/index.js` as follows:
 
 ```js
-const jsonPlugin = require('@pfx/json')
+const json = require('@pfx/json')
 
 module.exports = {
-  plugins:  [jsonPlugin],
+  plugins:  [json],
   context:  {},
   defaults: {}
 }
