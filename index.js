@@ -1,8 +1,8 @@
 module.exports = {
-  lexers: [
+  lexers:      [
     require('./src/lexers/jsonObj')
   ],
-  parsers: [
+  parsers:     [
     require('./src/parsers/json')
   ],
   applicators: [],
