@@ -16,7 +16,7 @@ See the [`pf` github repository][pf] for more details!
 
 > :ok_hand: `@pfx/json` comes preinstalled in `pf`. No installation necessary. If you still want to install it, proceed as described below.
 
-Usually, `@pfx/json` is installed in `~/.pfrc/` as follows:
+`@pfx/json` is installed in `~/.pfrc/` as follows:
 
 ```bash
 npm install @pfx/json
@@ -34,7 +34,7 @@ module.exports = {
 }
 ```
 
-For a much more detailed description, see the [`pf` repository][pf].
+For a much more detailed description, see the [`.pfrc` module documentation][pf-pfrc-module] in the [`pf` repository][pf].
 
 ## Reporting Issues
 
@@ -55,7 +55,8 @@ Please report issues [at the `pf` repository][issues]!
 [node]: https://nodejs.org/
 [prs-shield]: https://img.shields.io/badge/PRs-welcome-green.svg
 [pfx-how-to-contribute]: https://github.com/Yord/pf
-[linux-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/linux/badge.svg?branch=master
-[macos-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/macos/badge.svg?branch=master
-[windows-unit-tests-shield]: https://github.com/Yord/pfx-json/workflows/windows/badge.svg?branch=master
+[linux-unit-tests-shield]: https://img.shields.io/github/workflow/status/Yord/pfx-json/linux/master?label=linux&logo=github&color=#5A5A5A&logoColor=#5A5A5A
+[macos-unit-tests-shield]: https://img.shields.io/github/workflow/status/Yord/pfx-json/macos/master?label=macos&logo=github&color=#5A5A5A&logoColor=#5A5A5A
+[windows-unit-tests-shield]: https://img.shields.io/github/workflow/status/Yord/pfx-json/windows/master?label=windows&logo=github&color=#5A5A5A&logoColor=#5A5A5A
 [issues]: https://github.com/Yord/pf/issues
+[pf-pfrc-module]: https://github.com/Yord/pf#pfrc-module
