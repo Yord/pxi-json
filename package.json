@@ -1,12 +1,16 @@
 {
   "name": "pxi-json",
-  "version": "0.11.0",
-  "description": "JSON plugin for pxi (pixie), the small, fast and magic command-line data processor",
+  "version": "0.11.1",
+  "description": "JSON plugin for pxi (pixie), the small, fast and magical command-line data processor",
   "keywords": [
     "pxi",
     "pixie",
     "json",
     "csv",
+    "ssv",
+    "tsv",
+    "dsv",
+    "data-processing",
     "deserializer",
     "parser",
     "serializer",
