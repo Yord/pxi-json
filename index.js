@@ -5,7 +5,7 @@ module.exports = {
   deserializers: [
     require('./src/deserializers/json')
   ],
-  applicators:   [],
+  appliers:      [],
   serializers:   [
     require('./src/serializers/json')
   ]
