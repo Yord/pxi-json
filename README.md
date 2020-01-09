@@ -42,11 +42,11 @@ For a much more detailed description, see the [`.pxi` module documentation][pxi-
 
 This plugin comes with the following `pxi` extensions:
 
-|                   | Description                                                                                                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `jsonObj` chunker | Searches the data for JSON objects and returns each object as a token. All data between objects is dropped. This is useful in a streaming context, or when parsing files containing one big JSON list of JSON objects. |
-| `json` parser     | Parses data into JSON. Uses JSON.parse internally.                                                                                                                                                                     |
-| `json` marshaller | Serializes transformed JSON into JSON using JSON.stringify.                                                                                                                                                            |
+|                     | Description                                                                                                                                                                                                                  |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `jsonObj` chunker   | Searches the data for JSON objects and returns each object as a chunk. All data between objects is dropped. This is useful in a streaming context, or when deserializing files containing one big JSON list of JSON objects. |
+| `json` deserializer | Deserializes data into JSON. Uses JSON.parse internally.                                                                                                                                                                     |
+| `json` marshaller   | Serializes transformed JSON into JSON using JSON.stringify.                                                                                                                                                                  |
 
 ## Reporting Issues
 

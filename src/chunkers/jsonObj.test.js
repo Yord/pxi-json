@@ -6,27 +6,27 @@ test('chunks data into valid json objects and leaves out everything in between w
   const argv         = {verbose: 0}
   const offset       = anything()
   const lines        = []
-  const tokensOthers = integer(0, 20).chain(len =>
+  const chunksOthers = integer(0, 20).chain(len =>
     array(integer(0, 5), len, len).chain(depths =>
       (len === 0 ? array(jsonObject(0), 0, 0)
-                 : array(oneof(...depths.map(d => jsonObject(d))), len, len)).chain(tokens =>
+                 : array(oneof(...depths.map(d => jsonObject(d))), len, len)).chain(chunks =>
         array(string().map(str => str.replace(/{/g, '')), len + 1, len + 1).chain(others =>
-          constant({tokens, others})
+          constant({chunks, others})
         )
       )
     )
   )
 
   assert(
-    property(tokensOthers, offset, ({tokens, others}, offset) => {
+    property(chunksOthers, offset, ({chunks, others}, offset) => {
       const rest     = others[others.length - 1]
-      const data     = (tokens.map((token, index) => others[index] + token).join('') + rest).replace(/\\/g, '\\\\')
+      const data     = (chunks.map((chunk, index) => others[index] + chunk).join('') + rest).replace(/\\/g, '\\\\')
       const lastLine = offset
 
       expect(
         chunker(argv)(data, offset)
       ).toStrictEqual(
-        {err, tokens: tokens.map(t => t.replace(/\\/g, '\\\\')), lines, lastLine, rest: rest.replace(/\\/g, '\\\\')}
+        {err, chunks: chunks.map(t => t.replace(/\\/g, '\\\\')), lines, lastLine, rest: rest.replace(/\\/g, '\\\\')}
       )
     })
   )
@@ -35,10 +35,10 @@ test('chunks data into valid json objects and leaves out everything in between w
 test('chunks data into valid json objects and leaves out everything in between while returning the rest, with lines', () => {
   const err      = []
   const argv     = {verbose: 1}
-  const tokens   = ['{"foo": "bar\n\nbaz"}', '{"foo": "bar\nbaz"}']
+  const chunks   = ['{"foo": "bar\n\nbaz"}', '{"foo": "bar\nbaz"}']
   const before   = 'vgjncvkjhx\nc\nvjb'
   const rest     = 'fcgvhbjkhj\nvgc'
-  const data     = before + tokens.join('') + rest
+  const data     = before + chunks.join('') + rest
   const offset   = 65
   const lines    = [67, 69]
   const lastLine = 69
@@ -46,7 +46,7 @@ test('chunks data into valid json objects and leaves out everything in between w
   expect(
     chunker(argv)(data, offset)
   ).toStrictEqual(
-    {err, tokens, lines, lastLine, rest}
+    {err, chunks, lines, lastLine, rest}
   )
 })
 

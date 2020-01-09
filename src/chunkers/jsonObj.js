@@ -2,7 +2,7 @@ module.exports = {
   name: 'jsonObj',
   desc: 'chunks JSON objects (not arrays!) from streams and drops all characters in between.',
   func: ({verbose}) => (data, linesOffset) => {
-    const tokens  = []
+    const chunks  = []
     const lines   = []
     const err     = []
   
@@ -60,9 +60,9 @@ module.exports = {
   
       if (objFound) {
         objFound    = false
-        const token = text.slice(from, at + 1)
+        const chunk = text.slice(from, at + 1)
         
-        tokens.push(token)
+        chunks.push(chunk)
   
         text = text.slice(at + 1, len)
         len  = text.length
@@ -71,6 +71,6 @@ module.exports = {
     } while (!isDone)
   
     const lastLineWithoutRest = lines.length === 0 ? linesOffset : lines[lines.length - 1]
-    return {err, tokens, lines, lastLine: lastLineWithoutRest, rest: text}
+    return {err, chunks, lines, lastLine: lastLineWithoutRest, rest: text}
   }
 }
