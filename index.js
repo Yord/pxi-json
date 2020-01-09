@@ -1,6 +1,6 @@
 module.exports = {
-  lexers:      [
-    require('./src/lexers/jsonObj')
+  chunkers:    [
+    require('./src/chunkers/jsonObj')
   ],
   parsers:     [
     require('./src/parsers/json')

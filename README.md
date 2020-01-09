@@ -44,7 +44,7 @@ This plugin comes with the following `pxi` extensions:
 
 |                   | Description                                                                                                                                                                                                            |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `jsonObj` lexer   | Searches the data for JSON objects and returns each object as a token. All data between objects is dropped. This is useful in a streaming context, or when parsing files containing one big JSON list of JSON objects. |
+| `jsonObj` chunker | Searches the data for JSON objects and returns each object as a token. All data between objects is dropped. This is useful in a streaming context, or when parsing files containing one big JSON list of JSON objects. |
 | `json` parser     | Parses data into JSON. Uses JSON.parse internally.                                                                                                                                                                     |
 | `json` marshaller | Serializes transformed JSON into JSON using JSON.stringify.                                                                                                                                                            |
 

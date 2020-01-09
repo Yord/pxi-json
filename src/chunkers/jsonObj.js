@@ -1,6 +1,6 @@
 module.exports = {
   name: 'jsonObj',
-  desc: 'lexes streams of JSON objects (not arrays!) and drops all characters in between.',
+  desc: 'chunks JSON objects (not arrays!) from streams and drops all characters in between.',
   func: ({verbose}) => (data, linesOffset) => {
     const tokens  = []
     const lines   = []

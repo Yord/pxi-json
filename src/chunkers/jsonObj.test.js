@@ -1,5 +1,5 @@
 const {anything, array, assert, constant, integer, oneof, property, string, unicodeString} = require('fast-check')
-const {func: lexer} = require('./jsonObj')
+const {func: chunker} = require('./jsonObj')
 
 test('chunks data into valid json objects and leaves out everything in between while returning the rest, without lines', () => {
   const err          = []
@@ -24,7 +24,7 @@ test('chunks data into valid json objects and leaves out everything in between w
       const lastLine = offset
 
       expect(
-        lexer(argv)(data, offset)
+        chunker(argv)(data, offset)
       ).toStrictEqual(
         {err, tokens: tokens.map(t => t.replace(/\\/g, '\\\\')), lines, lastLine, rest: rest.replace(/\\/g, '\\\\')}
       )
@@ -44,7 +44,7 @@ test('chunks data into valid json objects and leaves out everything in between w
   const lastLine = 69
 
   expect(
-    lexer(argv)(data, offset)
+    chunker(argv)(data, offset)
   ).toStrictEqual(
     {err, tokens, lines, lastLine, rest}
   )
