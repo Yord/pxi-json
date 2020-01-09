@@ -31,7 +31,7 @@ test('deserializing text that is not json throws one of a list of errors, not us
   const potentiallyInvalidChunks = array(unicodeJson().map(str => str.slice(1)))
   const msgs                     = [
     'Unexpected end of',
-    'Unexpected chunk ',
+    'Unexpected token ',
     'Unexpected number',
     'Unexpected string'
   ]
@@ -58,7 +58,7 @@ test('deserializing text that is not json fails with exactly one error and the f
         constant({
           chunks,
           lines,
-          err: lines.length > 0 ? [{msg: 'Unexpected chunk < in JSON at position 1', line: lines[0]}] : []
+          err: lines.length > 0 ? [{msg: 'Unexpected token < in JSON at position 1', line: lines[0]}] : []
         })
       )
     )
@@ -84,7 +84,7 @@ test('deserializing text that is not json fails with exactly one error, the firs
         constant({
           chunks,
           lines,
-          err: lines.length > 0 ? [{msg: 'Unexpected chunk < in JSON at position 1', line: lines[0], info: '[' + chunks.join(',') + ']'}] : []
+          err: lines.length > 0 ? [{msg: 'Unexpected token < in JSON at position 1', line: lines[0], info: '[' + chunks.join(',') + ']'}] : []
         })
       )
     )
@@ -131,7 +131,7 @@ test('deserializing text that is not json throws one of a list of errors, not us
   const potentiallyInvalidChunks = array(unicodeJson().map(str => str.slice(1)))
   const msgs                     = [
     'Unexpected end of',
-    'Unexpected chunk ',
+    'Unexpected token ',
     'Unexpected number',
     'Unexpected string'
   ]
@@ -158,7 +158,7 @@ test('deserializing text that is not json fails with errors and lines if verbose
         constant({
           chunks,
           lines,
-          err: lines.map(line => ({msg: 'Unexpected chunk < in JSON at position 0', line}))
+          err: lines.map(line => ({msg: 'Unexpected token < in JSON at position 0', line}))
         })
       )
     )
@@ -185,7 +185,7 @@ test('deserializing text that is not json fails with errors, lines, and info if 
           chunks,
           lines,
           err: lines.map(
-            (line, index) => ({msg: 'Unexpected chunk < in JSON at position 0', line, info: chunks[index]})
+            (line, index) => ({msg: 'Unexpected token < in JSON at position 0', line, info: chunks[index]})
           )
         })
       )
