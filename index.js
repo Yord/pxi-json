@@ -1,12 +1,12 @@
 module.exports = {
-  lexers:      [
-    require('./src/lexers/jsonObj')
+  chunkers:      [
+    require('./src/chunkers/jsonObj')
   ],
-  parsers:     [
-    require('./src/parsers/json')
+  deserializers: [
+    require('./src/deserializers/json')
   ],
-  applicators: [],
-  marshallers: [
-    require('./src/marshallers/json')
+  appliers:      [],
+  serializers:   [
+    require('./src/serializers/json')
   ]
 }

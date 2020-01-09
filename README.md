@@ -1,8 +1,8 @@
-![@pfx/json teaser][teaser]
+![pxi-json teaser][teaser]
 
-`@pfx/json` is a JSON plugin for `pf`, the fast and extensible command-line data (e.g. JSON) processor and transformer.
+🧚`pxi-json` is a JSON plugin for `pxi` (pixie), the small, fast and magic command-line data processor.
 
-See the [`pf` github repository][pf] for more details!
+See the [`pxi` github repository][pxi] for more details!
 
 [![node version][shield-node]][node]
 [![npm version][shield-npm]][npm-package]
@@ -14,18 +14,20 @@ See the [`pf` github repository][pf] for more details!
 
 ## Installation
 
-> :ok_hand: `@pfx/json` comes preinstalled in `pf`. No installation necessary. If you still want to install it, proceed as described below.
+> :ok_hand: `pxi-json` comes preinstalled in `pxi`.
+> No installation necessary.
+> If you still want to install it, proceed as described below.
 
-`@pfx/json` is installed in `~/.pfrc/` as follows:
+`pxi-json` is installed in `~/.pxi/` as follows:
 
 ```bash
-npm install @pfx/json
+npm install pxi-json
 ```
 
-The plugin is included in `~/.pfrc/index.js` as follows:
+The plugin is included in `~/.pxi/index.js` as follows:
 
 ```js
-const json = require('@pfx/json')
+const json = require('pxi-json')
 
 module.exports = {
   plugins:  [json],
@@ -34,17 +36,17 @@ module.exports = {
 }
 ```
 
-For a much more detailed description, see the [`.pfrc` module documentation][pfrc-module].
+For a much more detailed description, see the [`.pxi` module documentation][pxi-module].
 
 ## Extensions
 
-This plugin comes with the following `pf` extensions:
+This plugin comes with the following `pxi` extensions:
 
-|                   | Description                                                                                                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `jsonObj` lexer   | Searches the data for JSON objects and returns each object as a token. All data between objects is dropped. This is useful in a streaming context, or when parsing files containing one big JSON list of JSON objects. |
-| `json` parser     | Parses data into JSON. Uses JSON.parse internally.                                                                                                                                                                     |
-| `json` marshaller | Serializes transformed JSON into JSON using JSON.stringify.                                                                                                                                                            |
+|                     | Description                                                                                                                                                                                                                  |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `jsonObj` chunker   | Searches the data for JSON objects and returns each object as a chunk. All data between objects is dropped. This is useful in a streaming context, or when deserializing files containing one big JSON list of JSON objects. |
+| `json` deserializer | Deserializes data into JSON. Uses JSON.parse internally.                                                                                                                                                                     |
+| `json` serializer   | Serializes transformed JSON into JSON using JSON.stringify.                                                                                                                                                                  |
 
 ## Reporting Issues
 
@@ -52,21 +54,21 @@ Please report issues [in the tracker][issues]!
 
 ## License
 
-`@pfx/json` is [MIT licensed][license].
+`pxi-json` is [MIT licensed][license].
 
-[actions]: https://github.com/Yord/pfx-json/actions
-[contribute]: https://github.com/Yord/pf
-[issues]: https://github.com/Yord/pf/issues
-[license]: https://github.com/Yord/pfx-json/blob/master/LICENSE
+[actions]: https://github.com/Yord/pxi-json/actions
+[contribute]: https://github.com/Yord/pxi
+[issues]: https://github.com/Yord/pxi/issues
+[license]: https://github.com/Yord/pxi-json/blob/master/LICENSE
 [node]: https://nodejs.org/
-[npm-package]: https://www.npmjs.com/package/@pfx/json
-[pf]: https://github.com/Yord/pf
-[pfrc-module]: https://github.com/Yord/pf#pfrc-module
-[shield-license]: https://img.shields.io/npm/l/@pfx/json?color=yellow&labelColor=313A42
-[shield-node]: https://img.shields.io/node/v/@pfx/json?color=red&labelColor=313A42
-[shield-npm]: https://img.shields.io/npm/v/@pfx/json.svg?color=orange&labelColor=313A42
+[npm-package]: https://www.npmjs.com/package/pxi-json
+[pxi]: https://github.com/Yord/pxi
+[pxi-module]: https://github.com/Yord/pxi#pxi-module
+[shield-license]: https://img.shields.io/npm/l/pxi-json?color=yellow&labelColor=313A42
+[shield-node]: https://img.shields.io/node/v/pxi-json?color=red&labelColor=313A42
+[shield-npm]: https://img.shields.io/npm/v/pxi-json.svg?color=orange&labelColor=313A42
 [shield-prs]: https://img.shields.io/badge/PRs-welcome-green.svg?labelColor=313A42
-[shield-unit-tests-linux]: https://github.com/Yord/pfx-json/workflows/linux/badge.svg?branch=master
-[shield-unit-tests-macos]: https://github.com/Yord/pfx-json/workflows/macos/badge.svg?branch=master
-[shield-unit-tests-windows]: https://github.com/Yord/pfx-json/workflows/windows/badge.svg?branch=master
-[teaser]: ./teaser.gif
+[shield-unit-tests-linux]: https://github.com/Yord/pxi-json/workflows/linux/badge.svg?branch=master
+[shield-unit-tests-macos]: https://github.com/Yord/pxi-json/workflows/macos/badge.svg?branch=master
+[shield-unit-tests-windows]: https://github.com/Yord/pxi-json/workflows/windows/badge.svg?branch=master
+[teaser]: https://github.com/Yord/pxi-json/blob/master/teaser.gif?raw=true
