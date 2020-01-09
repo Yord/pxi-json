@@ -46,7 +46,7 @@ This plugin comes with the following `pxi` extensions:
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `jsonObj` chunker   | Searches the data for JSON objects and returns each object as a chunk. All data between objects is dropped. This is useful in a streaming context, or when deserializing files containing one big JSON list of JSON objects. |
 | `json` deserializer | Deserializes data into JSON. Uses JSON.parse internally.                                                                                                                                                                     |
-| `json` marshaller   | Serializes transformed JSON into JSON using JSON.stringify.                                                                                                                                                                  |
+| `json` serializer   | Serializes transformed JSON into JSON using JSON.stringify.                                                                                                                                                                  |
 
 ## Reporting Issues
 

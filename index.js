@@ -6,7 +6,7 @@ module.exports = {
     require('./src/deserializers/json')
   ],
   applicators:   [],
-  marshallers:   [
-    require('./src/marshallers/json')
+  serializers:   [
+    require('./src/serializers/json')
   ]
 }

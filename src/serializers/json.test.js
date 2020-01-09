@@ -1,5 +1,5 @@
 const {anything, array, assert, constant, func, integer, oneof, property, unicodeJsonObject} = require('fast-check')
-const {func: marshaller} = require('./json')
+const {func: serializer} = require('./json')
 
 test('returns stringified jsons with formatting separated by newlines', () => {
   const err    = []
@@ -19,7 +19,7 @@ test('returns stringified jsons with formatting separated by newlines', () => {
       const str = values.map(value => JSON.stringify(value, argv.keep || argv.K, argv.spaces || argv.S) + '\n').join('')
 
       expect(
-        marshaller(argv)(values)
+        serializer(argv)(values)
       ).toStrictEqual(
         {err, str}
       )
@@ -44,7 +44,7 @@ test('return the empty string if stringify does not work for an object instead o
   assert(
     property(argv, values, (argv, values) =>
       expect(
-        marshaller(argv)(values)
+        serializer(argv)(values)
       ).toStrictEqual(
         {err, str}
       )
@@ -77,7 +77,7 @@ test('should fail on an object with circular reference, disregarding verbose', (
 
   assert(
     property(argv, valuesErr, (argv, {values, err}) => {
-      const result = marshaller(argv)(values)
+      const result = serializer(argv)(values)
       // must slice error since node v13 has more details than node v8.3.0
       result.err = result.err.map(e => ({msg: e.msg.slice(0, 37)}))
       expect(
