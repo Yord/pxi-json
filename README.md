@@ -1,6 +1,6 @@
 ![pxi-json teaser][teaser]
 
-🧚`pxi-json` is a JSON plugin for `pxi` (pixie), the small, fast and magical command-line data processor.
+🧚`pxi-json` is a JSON plugin for `pxi` (pixie), the small, fast, and magical command-line data processor.
 
 See the [`pxi` github repository][pxi] for more details!
 
