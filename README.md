@@ -1,6 +1,6 @@
 ![pxi-json teaser][teaser]
 
-🧚`pxi-json` is a JSON plugin for `pxi` (pixie), the small, fast and magical command-line data processor.
+🧚`pxi-json` is a JSON plugin for `pxi` (pixie), the small, fast, and magical command-line data processor.
 
 See the [`pxi` github repository][pxi] for more details!
 
@@ -48,6 +48,22 @@ This plugin comes with the following `pxi` extensions:
 | `json` deserializer | Deserializes data into JSON. Uses JSON.parse internally.                                                                                                                                                                     |
 | `json` serializer   | Serializes transformed JSON into JSON using JSON.stringify.                                                                                                                                                                  |
 
+## Known Limitations
+
+This plugin has the following limitations:
+
+1.  **No BigInt Support:**
+    Since JSON [does not support BigInt][json-bigint], `pxi-json` does not support it either.
+    If you need to pass BigInts, encode them as strings and not as numbers.
+2.  **No JSON-Stream Chunker for Non-Objects:**
+    Currently, `pxi-json` only ships with a JSON object chunker for data streams.
+    This may change in the future.
+3.  **Integer Key Ordering:**
+    The json serializer may order JSON object keys in surprising ways.
+    Keys that are integers are always moved to the beginning and sorted in ascending order.
+    All other keys come after these integer keys.
+    This is [how JavaScript generally handles object keys][json-keys-ordering] and `pxi-json` makes no exception.
+
 ## Reporting Issues
 
 Please report issues [in the tracker][issues]!
@@ -59,6 +75,8 @@ Please report issues [in the tracker][issues]!
 [actions]: https://github.com/Yord/pxi-json/actions
 [contribute]: https://github.com/Yord/pxi
 [issues]: https://github.com/Yord/pxi/issues
+[json-bigint]: https://stackoverflow.com/questions/18755125/node-js-is-there-any-proper-way-to-parse-json-with-large-numbers-long-bigint
+[json-keys-ordering]: https://stackoverflow.com/questions/30076219/does-es6-introduce-a-well-defined-order-of-enumeration-for-object-properties#answer-30919039
 [license]: https://github.com/Yord/pxi-json/blob/master/LICENSE
 [node]: https://nodejs.org/
 [npm-package]: https://www.npmjs.com/package/pxi-json
