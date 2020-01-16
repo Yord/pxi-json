@@ -52,7 +52,8 @@ function chunksDeserializer ({verbose}) {
         const obj = JSON.parse(chunk)
         jsons.push(obj)
       } catch (e) {
-        const msg  =               {msg:  e.message}
+        const hint = '(if the JSON is formatted over several lines, try using the jsonObj chunker)'
+        const msg  =               {msg:  e.message + ' ' + hint}
         const line = verbose > 0 ? {line: lines[index]} : {}
         const info = verbose > 1 ? {info: chunk}        : {}
         err.push(Object.assign(msg, line, info))
