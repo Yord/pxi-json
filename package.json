@@ -1,6 +1,6 @@
 {
   "name": "pxi-json",
-  "version": "0.11.5",
+  "version": "0.12.0",
   "description": "JSON plugin for pxi (pixie), the small, fast, and magical command-line data processor",
   "keywords": [
     "pxi",
