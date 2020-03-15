@@ -1,6 +1,6 @@
 {
   "name": "pxi-json",
-  "version": "0.11.5",
+  "version": "0.12.0",
   "description": "JSON plugin for pxi (pixie), the small, fast, and magical command-line data processor",
   "keywords": [
     "pxi",
@@ -32,14 +32,14 @@
   },
   "scripts": {
     "start": "./index.js",
-    "test": "jest --ci --coverage --logHeapUsage --passWithNoTests"
+    "test": "jest --ci --coverage --collectCoverageFrom 'src/**/*.js' --logHeapUsage --passWithNoTests"
   },
   "engines": {
     "node": ">=8.3.0"
   },
   "private": false,
   "devDependencies": {
-    "fast-check": "1.20.1",
-    "jest": "24.9.0"
+    "fast-check": "1.23.0",
+    "jest": "25.1.0"
   }
 }
